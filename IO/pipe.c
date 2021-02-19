@@ -20,7 +20,8 @@ int main(int argc, char *argv[]) {
       write(fd[1], write_msg + i, 1);
       sleep(1);
     }
-    close(fd[1]);
+    //close(fd[1]);
+    while(1) {}
     wait(NULL);
 
     printf("parent exits\n");

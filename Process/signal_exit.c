@@ -9,7 +9,10 @@ void exit_signal(int signo) {
 }
 
 int main(int argc, char *argv[]) {
-  signal(SIGINT, exit_signal);
+  // signal(SIGINT, exit_signal);
+  struct sigaction act;
+  act.sa_handler = exit_signal;
+  sigaction(SIGINT, &act, NULL); 
   printf("START\n");
 
   for (int i = 0; i < 10; i++) {
